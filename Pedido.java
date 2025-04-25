@@ -7,7 +7,7 @@ public class Pedido extends Observable {
 
     public Pedido(String nomePedido) {
         this.nomePedido = nomePedido;
-        this.estadoAtual = new PedidoEstadoRecebido(); // Estado inicial
+        this.estadoAtual = PedidoEstadoRecebido.getInstance(); // Estado inicial
     }
 
     public void setEstado(PedidoEstado estado) {

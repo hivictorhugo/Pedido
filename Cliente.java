@@ -22,7 +22,7 @@ public class Cliente implements Observer {
     public void update(Observable pedido, Object arg1) {
         if (pedido instanceof Pedido) {
             Pedido p = (Pedido) pedido;
-            this.ultimaNotificacao = this.nome + ", o estado do pedido mudou para: " + p.getEstadoNome();
+            this.ultimaNotificacao = this.nome + ", o estado do pedido '" + p.toString() + "' mudou para: " + p.getEstadoNome();
         }
     }
 }
