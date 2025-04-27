@@ -1,5 +1,8 @@
+package org.example;
+
 import java.util.Observable;
 import java.util.Observer;
+
 
 public class Cliente implements Observer {
 
@@ -14,15 +17,13 @@ public class Cliente implements Observer {
         return this.ultimaNotificacao;
     }
 
-    public void escolhe(Pedido pedido) {
-        pedido.addObserver(this); //
+    public void acompanharPedido(Pedido pedido) {
+        pedido.addObserver(this);
     }
 
     @Override
     public void update(Observable pedido, Object arg1) {
-        if (pedido instanceof Pedido) {
-            Pedido p = (Pedido) pedido;
-            this.ultimaNotificacao = this.nome + ", o estado do pedido '" + p.toString() + "' mudou para: " + p.getEstadoNome();
-        }
+        this.ultimaNotificacao = this.nome + ", atualização do seu pedido: " + pedido.toString();
+        System.out.println(this.ultimaNotificacao);
     }
 }
